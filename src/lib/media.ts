@@ -1,7 +1,8 @@
-/** Origin of the API host derived from NEXT_PUBLIC_API_URL (…/api → …). */
+import { getApiOrigin } from "@/lib/api-config";
+
+/** Origin of the API host derived from the centralized API config (…/api → …). */
 export function apiOrigin() {
-  const base = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000/api";
-  return base.replace(/\/api\/?$/, "").replace(/\/$/, "");
+  return getApiOrigin();
 }
 
 /** Turn relative or localhost upload paths into absolute URLs for the browser. */
